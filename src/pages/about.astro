@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Menu from '../components/Menu.astro'
 
 
 const pageTitle = "About Me";
@@ -17,10 +16,11 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Vue", "Neo4j", "
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
 ---
 
 <Layout title={pageTitle}>
-    <Menu/>
 	<main>
 
         <h1>{pageTitle}</h1>
@@ -51,8 +51,10 @@ const goal = 3;
 		
 	</main>
 </Layout>
-
-<style>
+<script>
+	import "../scripts/menu.ts";
+</script>
+<style define:vars={{skillColor}}>
 	main {
 		margin: auto;
 		padding: 1rem;
@@ -76,5 +78,9 @@ const goal = 3;
 		background-size: 400%;
 		background-position: 0%;
 	}
-	
+    {
+    color: green;
+    color: var(--skillColor);
+    font-weight: bold;
+  }
 </style>

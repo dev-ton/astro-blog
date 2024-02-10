@@ -1,19 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Menu from '../components/Menu.astro'
+
 
 const pageTitle = "Welcome to Astro."
 ---
 
 <Layout title={pageTitle}>
-	<Menu/>
 	<main>
 		
 		<h1>My <span class="text-gradient">Astro</span> Blog</h1>
 		
 	</main>
 </Layout>
-
+<script>
+	import "../scripts/menu.ts";
+</script>
 <style>
 	main {
 		margin: auto;
