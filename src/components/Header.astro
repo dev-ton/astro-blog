@@ -1,11 +1,20 @@
 ---
 import Hamburger from "./Hamburger.astro";
+import ThemeIcon from "./ThemeIcon.astro";
 import Menu from "./Menu.astro";
-
 ---
+
 <header>
-    <nav>
-        <Hamburger />
-      <Menu />
-    </nav>
-  </header>
+  <nav>
+    <Hamburger />
+    <ThemeIcon />
+    <Menu />
+  </nav>
+</header>
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+</style>
