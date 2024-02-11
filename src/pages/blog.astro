@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
+import type { PostModule } from "../types/types";
 
 const pageTitle = "Blog";
-const allPosts = await Astro.glob("../pages/posts/*.md");
+const allPosts: PostModule[] = await Astro.glob("../pages/posts/*.md");
 ---
 
 <Layout title={pageTitle}>
