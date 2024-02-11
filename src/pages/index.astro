@@ -1,43 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Greeting from "../components/Greeting";
+import Layout from "../layouts/Layout.astro";
 
-
-const pageTitle = "Welcome to Astro."
+const pageTitle = "Welcome to Astro.";
 ---
 
 <Layout title={pageTitle}>
-	<main>
-		
-		<h1>My <span class="text-gradient">Astro</span> Blog lol</h1>
-		
-	</main>
+  <main>
+    <h1>My <span class="text-gradient">Astro</span> Blog lol</h1>
+    <Greeting messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+    <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  </main>
 </Layout>
 <script>
-	import "../scripts/menu.ts";
+  import "../scripts/menu.ts";
 </script>
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
 </style>

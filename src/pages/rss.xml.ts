@@ -3,6 +3,8 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import type { PostModule } from '../types/types';
 
+// TODO: currently it fails on build. Fix it and perhaps utilize the collections.
+
 export const GET: APIRoute = async ({ site }) => {
     const posts = await getCollection('posts'); // collection not defined for now, refer to: https://docs.astro.build/en/guides/content-collections/
 
