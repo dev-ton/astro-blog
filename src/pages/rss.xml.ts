@@ -1,23 +1,19 @@
 import rss from '@astrojs/rss';
-import type { APIRoute } from 'astro';
+import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import type { PostModule } from '../types/types';
 
-// TODO: currently it fails on build. Fix it and perhaps utilize the collections.
-
-export const GET: APIRoute = async ({ site }) => {
-    const posts = await getCollection('posts'); // collection not defined for now, refer to: https://docs.astro.build/en/guides/content-collections/
-
+export async function GET(context: APIContext) {
+    const posts = await getCollection("posts");
     return rss({
         title: 'Astro Learner | Blog',
         description: 'My journey learning Astro',
-        site: site?.toString() || '',
-        items: posts.map((post: PostModule) => ({
-            title: post.frontmatter.title,
-            pubDate: post.frontmatter.pubDate,
-            description: post.frontmatter.description,
-            link: `/posts/${post.frontmatter.slug}/`,
+        site: context.site || '',
+        items: posts.map((post) => ({
+            title: post.data.title,
+            pubDate: post.data.pubDate,
+            description: post.data.description,
+            link: `/posts/${post.slug}/`,
         })),
         customData: `<language>en-us</language>`,
-    });
+    })
 }
