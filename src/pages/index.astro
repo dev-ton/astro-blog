@@ -7,7 +7,9 @@ const pageTitle = "Welcome to Astro.";
 
 <Layout title={pageTitle}>
   <main>
-    <h1>My <span class="text-gradient">Astro</span> Blog lol</h1>
+    <h1 transition:animate="slide">
+      My <span class="text-gradient">Astro</span> Blog lol
+    </h1>
     <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
   </main>
 </Layout>
